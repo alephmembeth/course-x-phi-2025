@@ -204,6 +204,12 @@
       \item Signifikanzniveau
       \item Online-$\chi^2$-Rechner
    \end{itemize}
+   \item[4] Ergebnisse der Replikationsstudie
+   \begin{itemize}
+      \item Offene Wissenschaft und offene Daten
+      \item Auswertung mit R
+      \item Ergebnisse
+   \end{itemize}
 \end{itemize}
 \end{frame}
 
@@ -654,18 +660,106 @@ Zum Vergleich: \enquote{This difference was highly statistically significant [$\
 \begin{frame}{\vspace*{10mm}3\hspace*{1em}Analyse der Replikationsstudie}
 \textbf{Online-$\chi^{2}$-Rechner}\\
 \smallskip
-\url{https://datatab.net/}
+\url{https://www.socscistatistics.com/tests/chisquare/}
 
 \bigskip
 \begin{center}
    \frame{\includegraphics[width=0.55\linewidth]{figures/replication_knobe_calculator.png}}\\
-   \textcolor{gray}{DATAtab Team (2024)}
+   \textcolor{gray}{Social Science Statistics (2025)}
 \end{center}
 \end{frame}
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% FOLIE 29 – ERGEBNISSE REPLIKATION %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{frame}
+\begin{overlayarea}{\textwidth}{0.81\paperheight}{
+   \vspace*{11mm}
+   \usebeamerfont{title}\textcolor{uolblue}
+   {4\hspace*{1em}Ergebnisse der Replikationsstudie}
+}
+\end{overlayarea}
+\end{frame}
+
+
+%%%%%%%%%%%%
+% FOLIE 30 %
+%%%%%%%%%%%%
+\begin{frame}{\vspace*{10mm}4\hspace*{1em}Ergebnisse der Replikationsstudie}
+\textbf{Offene Wissenschaft und offene Daten}\\
+\smallskip
+\url{https://github.com/alephmembeth/course-x-phi-2025}
+
+\bigskip
+\begin{center}
+   \frame{\includegraphics[width=0.55\linewidth]{figures/replication_knobe_github.png}}\\
+\end{center}
+\end{frame}
+
+
+%%%%%%%%%%%%
+% FOLIE 31 %
+%%%%%%%%%%%%
+\begin{frame}{\vspace*{10mm}4\hspace*{1em}Ergebnisse der Replikationsstudie}
+\textbf{Auswertung mit R (1/4)}\\
+\smallskip
+\lstset{style=mystyle}
+\lstinputlisting[language=R]{code/replication_knobe_part_1.R}
+\end{frame}
+
+
+%%%%%%%%%%%%
+% FOLIE 32 %
+%%%%%%%%%%%%
+\begin{frame}{\vspace*{10mm}4\hspace*{1em}Ergebnisse der Replikationsstudie}
+\textbf{Auswertung mit R (2/4)}\\
+\smallskip
+\lstset{style=mystyle}
+\lstinputlisting[language=R]{code/replication_knobe_part_2.R}
+\end{frame}
+
+
+%%%%%%%%%%%%
+% FOLIE 33 %
+%%%%%%%%%%%%
+\begin{frame}{\vspace*{10mm}4\hspace*{1em}Ergebnisse der Replikationsstudie}
+\textbf{Auswertung mit R (3/4)}\\
+\smallskip
+\lstset{style=mystyle}
+\lstinputlisting[language=R]{code/replication_knobe_part_3.R}
+\end{frame}
+
+
+%%%%%%%%%%%%
+% FOLIE 34 %
+%%%%%%%%%%%%
+\begin{frame}{\vspace*{10mm}4\hspace*{1em}Ergebnisse der Replikationsstudie}
+\textbf{Auswertung mit R (4/4)}\\
+\smallskip
+\lstset{style=mystyle}
+\lstinputlisting[language=R]{code/replication_knobe_part_4.R}
+\end{frame}
+
+%%%%%%%%%%%%
+% FOLIE 35 %
+%%%%%%%%%%%%
+\begin{frame}{\vspace*{10mm}4\hspace*{1em}Ergebnisse der Replikationsstudie}
+\begin{multicols}{2}
+   \begin{center}
+      \frame{\includegraphics[width=0.75\linewidth]{figures/replication_knobe_fig_1.png}}\\
+      \frame{\includegraphics[width=0.75\linewidth]{figures/replication_knobe_fig_2.png}}\\
+   \end{center}
+\end{multicols}
+\textbf{Antwort:} $\chi^2(df=1,n=162)=77,856$, $p<0,001$; $w=0,693$\\
+
+\medskip
+\textbf{Zuschreibung:} Schaden $M=5,12$, $SD=1,14$; Helfen $M=1,77$, $SD=1,78$; $t=14,1$, $p<0,001$; $d=2,24$
+\end{frame}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
-% FOLIE 29 – BIBLIOGRAFIE %
+% FOLIE 36 – BIBLIOGRAFIE %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{frame}{\vspace*{10mm}Bibliografie}
 \vspace*{-5mm}
@@ -673,11 +767,11 @@ Zum Vergleich: \enquote{This difference was highly statistically significant [$\
 \begin{itemize}[label=,leftmargin=2em,itemindent=-2em]
    \item Bauer, Alexander Max, Stephan Kornmesser und Henrike Meyer (2024): \enquote{Constative and Performative Utterances, $\chi^2$ Tests, and LimeSurvey}. In: Stephan Kornmesser, Alexander Max Bauer, Mark Alfano, Aurélien Allard, Lucien Baumgartner, Florian Cova, Paul Engelhardt, Eugen Fischer, Henrike Meyer, Kevin Reuter, Justin Sytsma, Kyle Thompson und Marc Wyszynski: \textit{Experimental Philosophy for Beginners. A Gentle Introduction to Methods and Tools}. Cham: Springer. S.~19--88.
    \item Boslaugh, Sarah (2012): \textit{Statistics in a Nutshell. A Desktop Quick Reference}. 2.~Auflage. Sebastopol: O'Reilly.
-   \item DATAtab Team (2024): \enquote{DATAtab. Online Statistics Calculator}, \url{https://datatab.net} (abgerufen am 17.04.2024).
    \item Gettier, Edmund (1963): \enquote{Is Justified True Belief Knowledge?}, \textit{Analysis} 23 (6), S.~121--123.
    \item Knobe, Joshua (2003): \enquote{Intentional Action and Side Effects in Ordinary Language}, \textit{Analysis} 63 (3), S.~190--194.
    \item Knobe, Joshua (2014): \enquote{Absichtliches Handeln und Nebeneffekte in der Alltagssprache}. Übers. von. Jürgen Schröder. In: Thomas Grundmann, Joachim Horvath und Jens Kipper (Hrsg.): \textit{Die Experimentelle Philosophie in der Diskussion}. Berlin: Suhrkamp. S.~96--101.
    \item Kuckartz, Udo, Stefan Rädiker, Thomas Ebert und Julia Schehl (2013): \textit{Statistik. Eine verständliche Einführung}. 2.~Auflage. Wiesbaden: Springer VS.
+   \item  Social Science Statistics (2024): \enquote{Chi Square Calculator for $2 \times 2$}, \url{https://www.socscistatistics.com/tests/chisquare/} (abgerufen am 02.11.2025).
    \item Weinberg, Jonathan, Shaun Nichols und Stephen Stich (2001): \enquote{Normativity and Epistemic Intuitions}, \textit{Philosophical Topics} 29 (1/2), S.~429--460.
 \end{itemize}
 }
