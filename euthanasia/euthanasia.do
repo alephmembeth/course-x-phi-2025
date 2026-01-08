@@ -24,12 +24,36 @@ keep if lastpage == 12
 /* sample */
 sum alter
 
+gen alter_kat = .
+   replace alter_kat = 1 if alter >= 18 & alter <= 29
+   replace alter_kat = 2 if alter >= 30 & alter <= 39
+   replace alter_kat = 3 if alter >= 40 & alter <= 49
+   replace alter_kat = 4 if alter >= 50 & alter <= 59
+   replace alter_kat = 5 if alter >= 60
+
+label define alter_kat_lb 1 "18–29" ///
+                          2 "30–39" ///
+                          3 "40–49" ///
+                          4 "50–59" ///
+                          5 "≥60", replace
+   label values alter_kat alter_kat_lb
+
+tab alter_kat
+
 label define geschlecht_lb 1 "Männlich" ///
                            2 "Weiblich" ///
                            3 "Divers", replace
    label values geschlecht geschlecht_lb
 
 tab geschlecht
+
+
+/* understanding */
+label define sterbehilfe_lb 0 "Nein" ///
+                            1 "Ja", replace
+   label values sterbehilfe sterbehilfe_lb
+
+tab sterbehilfe
 
 
 /* question */
@@ -56,15 +80,17 @@ preserve
              yscale(range(0 100))
       graph export euthanasia.pdf, replace
    
-   tab gruppe antwort, chi2
+   tab gruppe antwort, chi2 V
    
    recode gruppe (5 6 = 0 "Jung") (3 4 = 1 "Mittel") (1 2 = 2 "Alt"), gen(altersgruppe)
    
-   tab altersgruppe antwort, chi2
+   tab altersgruppe antwort, chi2 V
    
    recode gruppe (2 4 6 = 0 "Nicht Tödlich") (1 3 5 = 1 "Tödlich"), gen(toedlich)
    
-   tab toedlich antwort, chi2
+   tab toedlich antwort, chi2 V
+   
+   tab alter_kat antwort, chi2 V
 restore
 
 

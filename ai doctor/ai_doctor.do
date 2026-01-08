@@ -56,15 +56,15 @@ preserve
              yscale(range(0 100))
       graph export ai_doctor_q1.pdf, replace
    
-   tab gruppe antwort, chi2
+   tab gruppe antwort, chi2 V
    
    recode gruppe (3 4 = 0 "Folgt Nicht") (1 2 = 1 "Folgt"), gen(verhalten)
    
-   tab verhalten antwort, chi2
+   tab verhalten antwort, chi2 V
    
    recode gruppe (1 3 = 0 "Stirbt") (2 4 = 1 "Überlebt"), gen(ausgang)
    
-   tab ausgang antwort, chi2
+   tab ausgang antwort, chi2 V
 restore
 
 
@@ -107,17 +107,9 @@ ttest g3f2 == g3f3
 
 ttest g4f2 == g4f3
 
-gen gesamt_f2 = .
-   replace gesamt_f2 = g1f2
-   replace gesamt_f2 = g2f2
-   replace gesamt_f2 = g3f2
-   replace gesamt_f2 = g4f2
+egen gesamt_f2 = rowtotal(g1f2 g2f2 g3f2 g4f2), missing
 
-gen gesamt_f3 = .
-   replace gesamt_f3 = g1f3
-   replace gesamt_f3 = g2f3
-   replace gesamt_f3 = g3f3
-   replace gesamt_f3 = g4f3
+egen gesamt_f3 = rowtotal(g1f3 g2f3 g3f3 g4f3), missing
 
 ttest gesamt_f2 == gesamt_f3
 

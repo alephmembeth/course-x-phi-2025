@@ -24,6 +24,9 @@ forvalues i = 1/3 {
    destring g`i'f2, replace
    }
 
+drop if alter == 11
+drop if alter == 1983
+
 
 /* quality checks */
 keep if kontrolle == 1
@@ -39,6 +42,22 @@ label define geschlecht_lb 1 "Männlich" ///
    label values geschlecht geschlecht_lb
 
 tab geschlecht
+
+
+/* understanding */
+label define kategorie_lb 1 "Paradoxie" ///
+                          2 "Widerspruch" ///
+                          3 "Lüge" ///
+                          4 "Falsche Aussage" ///
+                          5 "Ich bin mir nicht sicher oder weiß es nicht", replace
+   label values kategorie kategorie_lb
+
+label define randnumber_lb 1 "Widerspruch" ///
+                           2 "Paradoxie" ///
+                           3 "Lüge", replace
+   label values randnumber randnumber_lb
+
+tab kategorie randnumber
 
 
 /* question 1 */
@@ -64,7 +83,7 @@ preserve
              yscale(range(0 100))
       graph export paradox_q1.pdf, replace
    
-   tab gruppe antwort, chi2
+   tab gruppe antwort, chi2 V
 restore
 
 
@@ -91,13 +110,13 @@ preserve
              yscale(range(0 100))
       graph export paradox_q2.pdf, replace
    
-   tab gruppe antwort, chi2
+   tab gruppe antwort, chi2 V
 restore
 
 
 /* question 1 vs question 2 */
 forvalues i = 1/3 {
-   tab g`i'f1 g`i'f2, chi2
+   tab g`i'f1 g`i'f2, chi2 V
    }
 
 
