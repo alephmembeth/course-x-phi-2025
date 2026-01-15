@@ -1,3 +1,5 @@
+cd "/Users/amb/Desktop/GitHub/course-x-phi-2025/trolley problem"
+
 /* header */
 version 19.5
 set more off, permanently
@@ -54,23 +56,23 @@ preserve
              yscale(range(0 100))
       graph export trolley_problem.pdf, replace
    
-   tab gruppe antwort, chi2
+   tab gruppe antwort, chi2 V
    
    recode gruppe (1 2 = 0 "Fremd") (3 4 = 1 "Eingeladen"), gen(verhaeltnis)
    
-   tab verhaeltnis antwort, chi2
+   tab verhaeltnis antwort, chi2 V
    
    recode gruppe (1 3 = 0 "Würde") (2 4 = 1 "Sollte"), gen(formulierung)
    
-   tab formulierung antwort, chi2
+   tab formulierung antwort, chi2 V
    
-   tab gruppe antwort if inlist(gruppe, 1, 2), chi2
+   tab gruppe antwort if inlist(gruppe, 1, 2), chi2 V
    
-   tab gruppe antwort if inlist(gruppe, 3, 4), chi2
+   tab gruppe antwort if inlist(gruppe, 3, 4), chi2 V
    
-   tab gruppe antwort if inlist(gruppe, 1, 3), chi2
+   tab gruppe antwort if inlist(gruppe, 1, 3), chi2 V
    
-   tab gruppe antwort if inlist(gruppe, 2, 4), chi2   
+   tab gruppe antwort if inlist(gruppe, 2, 4), chi2 V
 restore
 
 
