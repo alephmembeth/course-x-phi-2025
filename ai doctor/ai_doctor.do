@@ -74,9 +74,17 @@ preserve
    
    reshape long g, i(id) j(gruppe)
    
+   label define gruppe_lb 1 "Folgt; Stirbt" ///
+                          2 "Folgt; Überlebt" ///
+                          3 "Folgt Nicht; Stirbt" ///
+                          4 "Folgt Nicht; Überlebt", replace
+      label values gruppe gruppe_lb
+   
    rename g antwort
    
-   graph bar, over(antwort) by(gruppe)
+   graph bar, over(antwort) ///
+         ytitle("Prozent") ///
+         by(gruppe, note(""))
       graph export ai_doctor_q2.pdf, replace
    
    oneway antwort gruppe, bonferroni
@@ -89,9 +97,17 @@ preserve
    
    reshape long g, i(id) j(gruppe)
    
+   label define gruppe_lb 1 "Folgt; Stirbt" ///
+                          2 "Folgt; Überlebt" ///
+                          3 "Folgt Nicht; Stirbt" ///
+                          4 "Folgt Nicht; Überlebt", replace
+      label values gruppe gruppe_lb
+   
    rename g antwort
    
-   graph bar, over(antwort) by(gruppe)
+   graph bar, over(antwort) ///
+         ytitle("Prozent") ///
+         by(gruppe, note(""))
       graph export ai_doctor_q3.pdf, replace
    
    oneway antwort gruppe, bonferroni
