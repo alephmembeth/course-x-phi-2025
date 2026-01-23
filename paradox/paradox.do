@@ -36,25 +36,25 @@ keep if lastpage == 8
 /* sample */
 sum alter
 
-label define geschlecht_lb 1 "Männlich" ///
-                           2 "Weiblich" ///
-                           3 "Divers", replace
+label define geschlecht_lb 1 "Male" ///
+                           2 "Female" ///
+                           3 "Other", replace
    label values geschlecht geschlecht_lb
 
 tab geschlecht
 
 
 /* understanding */
-label define kategorie_lb 1 "Paradoxie" ///
-                          2 "Widerspruch" ///
-                          3 "Lüge" ///
-                          4 "Falsche Aussage" ///
-                          5 "Ich bin mir nicht sicher oder weiß es nicht", replace
+label define kategorie_lb 1 "Paradox" ///
+                          2 "Contradiction" ///
+                          3 "Lie" ///
+                          4 "False Statement" ///
+                          5 "I'm Not Sure Or I Don't Know", replace
    label values kategorie kategorie_lb
 
-label define randnumber_lb 1 "Widerspruch" ///
-                           2 "Paradoxie" ///
-                           3 "Lüge", replace
+label define randnumber_lb 1 "Contradiction" ///
+                           2 "Paradox" ///
+                           3 "Lie", replace
    label values randnumber randnumber_lb
 
 tab kategorie randnumber
@@ -68,18 +68,18 @@ preserve
    
    rename g antwort
    
-   label define gruppe_lb 1 "Widerspruch" ///
-                          2 "Paradoxie" ///
-                          3 "Lüge", replace
+   label define gruppe_lb 1 "Contradiction" ///
+                          2 "Paradox" ///
+                          3 "Lie", replace
       label values gruppe gruppe_lb
    
-   label define antwort_lb 0 "Nein" 1 "Ja"
+   label define antwort_lb 0 "No" 1 "Yes"
       label values antwort antwort_lb
    
    histogram antwort, percent discrete by(gruppe, rows(1) note("") graphregion(fcolor(white))) ///
-             xtitle("Antwort") ///
-             xlabel(0 "Nein" 1 "Ja") ///
-             ytitle("Prozent") ///
+             xtitle("Answer") ///
+             xlabel(0 "No" 1 "Yes") ///
+             ytitle("Percent") ///
              yscale(range(0 100))
       graph export paradox_q1.pdf, replace
    
@@ -95,18 +95,18 @@ preserve
    
    rename g antwort
    
-   label define gruppe_lb 1 "Widerspruch" ///
-                          2 "Paradoxie" ///
-                          3 "Lüge", replace
+   label define gruppe_lb 1 "Contradiction" ///
+                          2 "Paradox" ///
+                          3 "Lie", replace
       label values gruppe gruppe_lb
    
-   label define antwort_lb 0 "Nein" 1 "Ja"
+   label define antwort_lb 0 "No" 1 "Yes"
       label values antwort antwort_lb
    
    histogram antwort, percent discrete by(gruppe, rows(1) note("") graphregion(fcolor(white))) ///
-             xtitle("Antwort") ///
-             xlabel(0 "Nein" 1 "Ja") ///
-             ytitle("Prozent") ///
+             xtitle("Answer") ///
+             xlabel(0 "No" 1 "Yes") ///
+             ytitle("Percent") ///
              yscale(range(0 100))
       graph export paradox_q2.pdf, replace
    
