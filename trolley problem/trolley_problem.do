@@ -1,5 +1,3 @@
-cd "/Users/amb/Desktop/GitHub/course-x-phi-2025/trolley problem"
-
 /* header */
 version 19.5
 set more off, permanently
@@ -26,9 +24,9 @@ keep if lastpage == 10
 /* sample */
 sum alter
 
-label define gender_lb 1 "Männlich" ///
-                       2 "Weiblich" ///
-                       3 "Divers", replace
+label define gender_lb 1 "Male" ///
+                       2 "Female" ///
+                       3 "Other", replace
    label values gender gender_lb
 
 tab gender
@@ -40,29 +38,29 @@ preserve
    
    rename g antwort
    
-   label define gruppe_lb 1 "Fremd; Würde" ///
-                          2 "Fremd; Sollte" ///
-                          3 "Eingeladen; Würde" ///
-                          4 "Eingeladen; Sollte", replace
+   label define gruppe_lb 1 "Unfamiliar; Would" ///
+                          2 "Unfamiliar; Should" ///
+                          3 "Invited; Would" ///
+                          4 "Invited; Should", replace
       label values gruppe gruppe_lb
    
-   label define antwort_lb 0 "Nein" 1 "Ja"
+   label define antwort_lb 0 "No" 1 "Yes"
       label values antwort antwort_lb
    
    histogram antwort, percent discrete by(gruppe, note("") graphregion(fcolor(white))) ///
-             xtitle("Antwort") ///
-             xlabel(0 "Nein" 1 "Ja") ///
-             ytitle("Prozent") ///
+             xtitle("Answer") ///
+             xlabel(0 "No" 1 "Yes") ///
+             ytitle("Percent") ///
              yscale(range(0 100))
       graph export trolley_problem.pdf, replace
    
    tab gruppe antwort, chi2 V
    
-   recode gruppe (1 2 = 0 "Fremd") (3 4 = 1 "Eingeladen"), gen(verhaeltnis)
+   recode gruppe (1 2 = 0 "Unfamiliar") (3 4 = 1 "Invited"), gen(verhaeltnis)
    
    tab verhaeltnis antwort, chi2 V
    
-   recode gruppe (1 3 = 0 "Würde") (2 4 = 1 "Sollte"), gen(formulierung)
+   recode gruppe (1 3 = 0 "Would") (2 4 = 1 "Should"), gen(formulierung)
    
    tab formulierung antwort, chi2 V
    
