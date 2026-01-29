@@ -32,6 +32,15 @@ label define geschlecht_lb 1 "Male" ///
 tab geschlecht
 
 
+/* background */
+label define ki_lb 0 "No" ///
+                   1 "Yes" ///
+                   2 "Partially", replace
+   label values ki ki_lb
+
+tab ki
+
+
 /* question 1 */
 preserve
    rename (g1f1 g2f1 g3f1 g4f1) (g1 g2 g3 g4)
