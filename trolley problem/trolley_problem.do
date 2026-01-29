@@ -32,6 +32,10 @@ label define gender_lb 1 "Male" ///
 tab gender
 
 
+/* background */
+tab trolley
+
+
 /* question */
 preserve
    reshape long g, i(id) j(gruppe)
