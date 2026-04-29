@@ -66,14 +66,17 @@ preserve
       graph export ai_doctor_q1.pdf, replace
    
    tab gruppe antwort, chi2 V
+   tab gruppe antwort, exact
    
    recode gruppe (3 4 = 0 "Follows Not") (1 2 = 1 "Follows"), gen(verhalten)
    
    tab verhalten antwort, chi2 V
+   tab verhalten antwort, exact
    
    recode gruppe (1 3 = 0 "Dies") (2 4 = 1 "Survives"), gen(ausgang)
    
    tab ausgang antwort, chi2 V
+   tab ausgang antwort, exact
 restore
 
 
@@ -97,6 +100,7 @@ preserve
       graph export ai_doctor_q2.pdf, replace
    
    oneway antwort gruppe, bonferroni
+   kwallis antwort, by(gruppe)
 restore
 
 
@@ -120,6 +124,7 @@ preserve
       graph export ai_doctor_q3.pdf, replace
    
    oneway antwort gruppe, bonferroni
+   kwallis antwort, by(gruppe)
 restore
 
 
